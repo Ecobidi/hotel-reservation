@@ -1,0 +1,113 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title">Rooms</h3>
+      <div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modelId">Add Room</button>
+      </div>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <form id="search-form" method="GET" action="/rooms?" class="form-inline">
+        <div class="form-group mb-4">
+          <input required type="text" name="search" id="search-box" class="form-control" placeholder="Search ...">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+      <h4 class="font-weight-light text-center text-white bg-primary p-2 m-0 table-top">List of Hotel Rooms</h4>
+      <table class="table table-striped">
+        <thead class="font-weight-bold">
+          <tr>
+            <td>#</td>
+            <th>Room Number</th>
+            <th>Floor</th>
+            <th>Number of Beds</th>
+            <th>Class</th>
+            <th>Cost Per Night (&#8358;)</th>
+            <th>Available</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rooms.forEach((m) => { %>
+            <tr>
+              <td><%= m.serial_number %></td>
+              <td><small><%= m.room_number %></small></td>
+              <td><small><%= m.floor %></small></td>
+              <td><small><%= m.number_of_beds %></small></td>
+              <td><small><%= m.room_type %></small></td>
+              <td><small><%= m.cost_per_night %></small></td>
+              <td><small><%= m.available %></small></td>
+              <td>
+                <a href='<%= "/rooms/remove/" + m._id %>' class="btn btn-sm btn-danger">Remove</a>
+              </td>
+            </tr>
+          <% }) %>          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Room</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form action="/rooms/new" method="POST" class="row">
+            <div class="form-group col-6">
+              <label>Room number</label>
+              <input required type="text" class="form-control" name="room_number">
+            </div>
+            <div class="form-group col-6">
+              <label>Room type</label>
+              <select required name="room_type" class="form-control">
+                <option></option>
+                <option value="Regular">Regular</option>
+                <option value="Family">Family</option>
+                <option value="VIP">VIP</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label>Floor located</label>
+              <input type="number" name="floor" class="form-control" placeholder="1...10+ floor">
+            </div>
+            <div class="form-group col-6">
+              <label>Number of Beds</label>
+              <input type="number" required class="form-control" name="number_of_beds">
+            </div>
+            <div class="form-group col-6">
+              <label>Cost Per Night (&#8358;)</label>
+              <input type="number" required class="form-control" name="cost_per_night">
+            </div>
+            <div class="my-3 col-12">
+              <button class="btn btn-block btn-primary" type="submit">Proceed</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#exampleModal').on('show.bs.modal', event => {
+    var button = $(event.relatedTarget);
+    var modal = $(this);
+    // Use above variables to manipulate the DOM
+    
+  });
+</script>
+
+<%- include ('partials/bottom') %>

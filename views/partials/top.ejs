@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <title><%= appname %></title>
+</head>
+<body>
+  <nav class="navbar navbar-light">
+		<a class="navbar-brand" href="/a"><%= appname %></a>
+  </nav>
+  
+	<main class="main">
+		<aside class="sidenav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link"><i class="fa fa-dashboard mr-2" aria-hidden="true"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="/rooms" class="nav-link"><i class="fa fa-houzz  mr-2" aria-hidden="true"></i> Rooms</a>
+        </li>
+        <li class="nav-item">
+          <a href="/guests" class="nav-link"><i class="fa fa-id-card mr-2" aria-hidden="true"></i> Guests</a>
+        </li>
+        <li class="nav-item">
+          <a href="/reservations" class="nav-link"><i class="fa fa-id-badge mr-2" aria-hidden="true"></i> Reservations</a>
+        </li>
+        <li class="nav-item">
+          <a href="/checkins" class="nav-link"><i class="fa fa-ticket mr-2" aria-hidden="true"></i> View Check Ins</a>
+        </li>
+        <li class="nav-item">
+          <a href="/users" class="nav-link"><i class="fa fa-users mr-2" aria-hidden="true"></i> Users</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i> Logout</a>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <div class="container-fluid">

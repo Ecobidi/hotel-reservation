@@ -1,0 +1,91 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title">Proceed To Check IN</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>Room Number: <strong><%= room.room_number %></strong></p>
+    </div>
+    <div class="col-3">
+      <p>Room Type: <strong><%= room.room_type %></strong></p>
+    </div>
+    <div class="col-3">
+      <p>Floor Located: <strong><%= room.floor %></strong></p>
+    </div>
+    <div class="col-3">
+      <p>Number of Beds: <strong><%= room.number_of_beds %></strong></p>
+    </div>
+    <div class="col-3">
+      <p>Cost Per Night: <strong><%= room.cost_per_night %></strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <form action="/rooms/checkin" class="row" method="POST">
+        <input required name="room_id" value='<%= room._id %>' type="hidden">
+        <div class="form-group col-4">
+          <label>Guest Name</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="form-group col-4">
+          <label>Mobile Phone</label>
+          <input type="text" class="form-control" name="phone" required>
+        </div>
+        <div class="form-group col-4">
+          <label>Identity Card Type</label>
+          <input type="text" class="form-control" name="id_card_type">
+        </div>
+        <div class="form-group col-4">
+          <label>Identity Card Number</label>
+          <input type="text" class="form-control" name="id_card_number">
+        </div>
+        <div class="form-group col-4">
+          <label>Address</label>
+          <input type="text" class="form-control" name="address" required>
+        </div>
+        <div class="col-12">
+          <fieldset class="row">
+            <div class="form-group col-6">
+              <label>Date Checked In</label>
+              <input required type="date" class="form-control" name="check_in_date">
+            </div>
+            <div class="form-group col-6">
+              <label>Date to Check Out</label>
+              <input required type="date" class="form-control" name="check_out_date">
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="text-danger col-12">
+              <i class="fa fa-cc-mastercard" aria-hidden="true"></i> 
+              <i class="fa fa-cc-stripe" aria-hidden="true"></i> 
+              <i class="fa fa-cc-visa" aria-hidden="true"></i> 
+            </div>
+            <div class="form-group col-4">
+              <label>Card Number</label>
+              <input required type="number" class="form-control" name="card_number">
+            </div>
+            <div class="form-group col-3">
+              <label>Card CVV</label>
+              <input required type="number" class="form-control" name="card_cvv">
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-4 offset-4">
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
+</div>
+</div> 
+
+<%- include ('partials/bottom') %>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hotel Reservation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  </head>
+  <body>
+    
+    <header class="site-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 site-logo" data-aos="fade"><a href="/client"><em>Hotel Reservation</em></a></div>
+          <div class="col-8">
+
+
+            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- END menu-toggle -->
+
+            <div class="site-navbar js-site-navbar">
+              <nav role="navigation">
+                <div class="container">
+                  <div class="row full-height align-items-center">
+                    <div class="col-md-6 mx-auto text-center">
+                      <ul class="list-unstyled menu">
+                        <li><a href="/client">Home</a></li>
+                        <li class="active"><a href="/client/reservation">Reservation Form</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END head -->
+
+    <section class="site-hero inner-page overlay" style="background-image: url(/img/slider-5.jpg)" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center text-center">
+          <div class="col-md-10 text-center" data-aos="fade-up">
+            <h1 class="heading">Reservation</h1>
+          </div>
+        </div>
+      </div>
+
+      <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </div>
+      </a>
+    </section>
+    <!-- END section -->
+
+    
+    <section class="section contact-section" id="next">
+      <div class="container">
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="row">
+            <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong><%= error_msg %></strong> 
+            </div>
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+        <% if (success_msg && success_msg.length > 0) { %>
+          <div class="row">
+            <div class="col-12 alert alert-success alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong><%= success_msg %></strong> 
+            </div>
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+        <div class="row">
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            
+            <form action="/client/reservation" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="name">Name</label>
+                  <input type="text" id="name" name="customer_name" class="form-control form-control-lg ">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="phone">Phone</label>
+                  <input type="text" id="phone" name="customer_phone" class="form-control form-control-lg ">
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label class="text-black font-weight-bold" for="address">Type of Room</label>
+                  <select name="room_type" class="form-control form-control-lg">
+                    <option value="">Select Room Type</option>
+                    <option>Regular</option>
+                    <option>VIP</option>
+                    <option>Family</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
+                  <input type="date" class="form-control form-control-lg" name="check_in_date">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
+                  <input type="date" class="form-control form-control-lg" name="check_out_date">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="submit" value="Reserve Now" class="btn btn-primary text-white py-3 px-5">
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <% /* %>
+          <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="row">
+              <div class="col-md-10 ml-auto contact-info">
+                <p><span class="d-block">Address:</span> <span> </span></p>
+                <p><span class="d-block">Phone:</span> <span> </span></p>
+                <p><span class="d-block">Email:</span> <span> info@yourdomain.com</span></p>
+              </div>
+            </div>
+          </div>
+          <% */ %>
+          <div class="col-md-5 ml-auto order-lg-2 aos-init aos-animate" data-aos="fade-up">
+            <img src="/img/about_feature_image.png" alt="Image" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <div class="container" >
+        <div class="row align-items-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2>Make Yourself Comfortable in Any of Our Fully Air-conditioned Rooms</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    
+    
+    <script src="/js/aos.js"></script>
+    
+    <script src="/js/bootstrap-datepicker.js"></script> 
+    <script src="/js/jquery.timepicker.min.js"></script> 
+
+    
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
